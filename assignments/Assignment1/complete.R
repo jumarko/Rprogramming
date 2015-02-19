@@ -7,7 +7,7 @@ complete <- function(directory, id = 1:332) {
     
     files <- list.files(directory, full.names = TRUE)    
     
-    completeCases <- matrix(nrow = length(id), ncol=2, dimnames = list(seq_along(id), c("id", "nobs")))
+    completeCases <- data.frame(length(id), 2)    
     
     row <- 1
     for (i in id) {
@@ -24,5 +24,6 @@ complete <- function(directory, id = 1:332) {
     ## ...
     ## where 'id' is the monitor ID number and 'nobs' is the
     ## number of complete cases
+    colnames(completeCases) <- c("id", "nobs")
     completeCases
 }
